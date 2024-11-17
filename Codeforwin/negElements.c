@@ -1,7 +1,7 @@
 
 
 #include <stdio.h>
-#define MAX_SIZE 1000 // Maximum array size
+#define MAX_SIZE 1000 
 
 int main()
 {
