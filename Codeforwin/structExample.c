@@ -1,115 +1,42 @@
-// #include <stdio.h>
-// #define MAX_SIZE 100
-
-// void max_and_min(int arr[], int n, int *max, int *min);
-
-// int main()
-// {
-//     int arr[MAX_SIZE];
-//     int i, n, max, min;
-
-    
-//     printf("Enter size of the array: ");
-//     scanf("%d", &n);
-   
-//     if (n <= 0) {
-//         printf("Invalid array size.\n");
-//         return 1;
-//     }
-
-//     printf("Enter %d elements in the array: ", n);
-//     for(i=0; i<n; i++)
-//     {
-//         scanf("%d", &arr[i]);
-//     }
-
-//     max = arr[0];
-//     min = arr[0];
-
-//     max_and_min(arr, n, &max, &min);
-
-//     printf("Maximum= %d\nMinimum= %d", max, min);
-
-//     return 0;
-// }
-
-// void max_and_min(int arr[], int n, int *max, int *min)
-// {
-    
-
-//     for(int i=0; i < n; i++)
-//     {
-
-//        if (*max < arr[i])
-//         {
-//             *max = arr[i];
-//         }
-//        if (*min > arr[i])
-//        {
-//             *min = arr[i];
-//        }
-//     }
-// }
-
 #include <stdio.h>
-#define MAX_SIZE 100
 
-void inputArray(int arr[], int n);
-int findMax(int arr[], int n);
-int findMin(int arr[], int n);
+// Define a struct named 'Student'
+struct Student {
+    char name[50]; // Array to store the name
+    int roll;      // Roll number
+    float grade;   // Grade
+};
 
-int main()
-{
-    int arr[MAX_SIZE];
-    int n, max, min;
+int main() {
+    struct Student students[30]; // Array to store data of 30 students
+    int n;
 
-    
-    printf("Enter size of the array: ");
+    // Get the number of students
+    printf("Enter the number of students (up to 30): ");
     scanf("%d", &n);
-   
-    printf("Enter %d elements in the array: ", n);
-    inputArray(arr, n);
 
-    max = findMax(arr, n);
-    min = findMin(arr, n);
+    // Input details for each student
+    for (int i = 0; i < n; i++) {
+        printf("\nEnter details for student %d:\n", i + 1);
 
-    printf("Maximum= %d\nMinimum= %d", max, min);
+        printf("Name: ");
+        scanf("%s", students[i].name);
+
+        printf("Roll Number: ");
+        scanf("%d", &students[i].roll);
+
+        printf("Grade: ");
+        scanf("%f", &students[i].grade);
+    }
+
+    // Display the data of all students
+    printf("\n--- Student Details ---\n");
+    for (int i = 0; i < n; i++) {
+        printf("\nStudent %d:\n", i + 1);
+        printf("Name: %s\n", students[i].name);
+        printf("Roll Number: %d\n", students[i].roll);
+        printf("Grade: %.2f\n", students[i].grade);
+    }
 
     return 0;
-}
-
-void inputArray(int arr[], int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        scanf("%d", &arr[i]);
-    }
-}
-
-int findMax(int arr[], int n)
-{
-    int max = arr[0];
-
-    for (int i = 1; i < n; i++)
-    {
-        if (arr[i] > max)
-        {
-            max = arr[i];
-        }
-    }
-    return max;
-}
-
-int findMin(int arr[], int n)
-{
-    int min = arr[0];
-
-    for (int i = 1; i < n; i++)
-    {
-        if (arr[i] < min)
-        {
-            min = arr[i];
-        }
-    }
-    return min;
 }
