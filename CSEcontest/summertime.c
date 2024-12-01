@@ -4,7 +4,6 @@ int main()
 {
     int X;
 
-    printf("Enter temperature: ");
     scanf("%d", &X); 
 
     if (X > 35) 
