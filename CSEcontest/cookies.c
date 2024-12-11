@@ -1,28 +1,34 @@
 #include <stdio.h>
 #include <string.h>
 
-int main() {
-    int totalBoxes, days;
-    char boxes[101];
+int main() 
 
-    scanf("%d %d", &totalBoxes, &days);
-    scanf("%s", boxes);
+{
+    int N, D;
+    char S[101]; 
 
-    int emptyBoxes = 0;
-    int eatenCookies = 0;
 
-    for (int i = 0; i < totalBoxes; i++) {
-        if (boxes[i] == '@' && eatenCookies < days) {
-            eatenCookies++;
-            boxes[i] = '.';
-        }
+    scanf("%d %d", &N, &D);
+    scanf("%s", S);
 
-        if (boxes[i] == '.') {
-            emptyBoxes++;
+    int em_boxes = 0;
+    int cookie_eaten = 0;
+
+    for (int i = 0; i < N; i++)
+     {
+        if (S[i] == '@' && cookie_eaten < D) 
+        {
+            cookie_eaten++; 
+            S[i] = '.';    
+
+        if (S[i] == '.') {
+            em_boxes++; 
         }
     }
 
-    printf("%d\n", emptyBoxes);
+ 
+     printf("%d\n", em_boxes);
 
-    return 0;
+     return 0;
+    }
 }
