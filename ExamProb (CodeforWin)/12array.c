@@ -1,25 +1,38 @@
 #include <stdio.h>
 
-int main() {
-    int arr[] = {1, 3, 4, 2, 5, 2, 4, 2, 4, 3, 5, 4, 5};
-    int count = 0;  // Initialize the count of duplicates
-    int size = sizeof(arr) / sizeof(arr[0]);  // Get the size of the array
+void printUniqueElements(int arr[], int n) 
+{
+    int count;
 
-    for (int i = 0; i < size; i++) {
-        // Skip already checked or counted elements
-        if (arr[i] == -1) {
-            continue;
-        }
+    // Traverse the array and check for each element
+    for(int i = 0; i < n; i++) 
+    {
+        count = 0;
 
-        for (int j = i + 1; j < size; j++) 
+        // Count occurrences of arr[i]
+        for(int j = 0; j < n; j++) 
         {
-            if (arr[i] != arr[j]) {
-                arr
+            if(arr[i] == arr[j]) 
+            {
+                count++;
             }
         }
-    }
 
-    printf("Number of duplicate elements: %d\n", count);
+        // If the element appears only once, print it
+        if(count == 1) 
+        {
+            printf("%d ", arr[i]);
+        }
+    }
+}
+
+int main() {
+    int arr[] = {4, 5, 7, 8, 4, 9, 5, 10, 11, 9};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Unique elements in the array: ");
+    printUniqueElements(arr, n);
 
     return 0;
 }
+
